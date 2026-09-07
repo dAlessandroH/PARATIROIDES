@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glándulas paratiroides · Anatomía, histología y función</title>
+<title>Glándula Paratiroides · Fisiología II</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Karla:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -54,6 +54,16 @@
   }
   header h1 em{font-style:italic;font-weight:400;color:var(--para-soft)}
   header p.sub{max-width:54ch;margin:0 auto;color:var(--muted);font-size:16px}
+  .authors{
+    list-style:none;margin:26px auto 0;padding:18px 0 0;max-width:640px;
+    border-top:1px solid var(--line);
+    display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;
+  }
+  .authors li{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--dim);
+    text-transform:uppercase;white-space:nowrap;
+  }
+  .authors li:first-child{color:var(--para-soft)}
 
   /* ---------- visor ---------- */
   .viewer{
@@ -64,18 +74,12 @@
     box-shadow:0 30px 90px -44px #000, inset 0 1px 0 rgba(255,240,230,.06);
     overflow:hidden;
   }
-  .tabs{
-    display:flex;gap:0;border-bottom:1px solid var(--line);
-    background:rgba(0,0,0,.2);
+  .viewer-head{
+    border-bottom:1px solid var(--line);background:rgba(0,0,0,.2);
+    padding:15px 10px;text-align:center;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--para-soft);
   }
-  .tab{
-    flex:1;background:none;border:0;border-bottom:2px solid transparent;
-    color:var(--dim);font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;
-    text-transform:uppercase;padding:15px 10px;cursor:pointer;transition:color .2s,border-color .2s,background .2s;
-  }
-  .tab:hover{color:var(--ink);background:rgba(255,220,190,.05)}
-  .tab[aria-selected="true"]{color:var(--para-soft);border-bottom-color:var(--para)}
-  .tab:focus-visible{outline:2px solid var(--para);outline-offset:-4px}
 
   .stage{position:relative;padding:8px 0 0}
   .stage::before{
@@ -139,20 +143,6 @@
   #axisNote b{color:var(--ink);font-weight:500}
 
   /* ---------- dato curioso ---------- */
-  .curious{
-    border:1px solid rgba(245,201,120,.3);border-radius:22px;padding:clamp(26px,4vw,46px);
-    background:linear-gradient(135deg,rgba(229,169,60,.13),rgba(184,92,87,.12));
-  }
-  .curious .eyebrow{color:var(--para-soft)}
-  .curious .big{
-    font-family:var(--display);font-style:italic;font-weight:500;
-    font-size:clamp(23px,3.5vw,36px);line-height:1.24;margin:12px 0 18px;color:#fff;
-  }
-  .curious p{font-size:17.5px;max-width:68ch;color:#E7DCD5}
-  .stats{display:flex;gap:38px;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
-  .stat b{display:block;font-family:var(--mono);font-size:25px;font-weight:700;color:#fff}
-  .stat span{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
-
   footer{border-top:1px solid var(--line);padding:26px 0 40px;text-align:center;
     font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
 
@@ -163,23 +153,26 @@
 
 <div class="wrap">
   <header>
-    <p class="eyebrow">FISIOLOGIA II · Universidad de Santa Fe</p>
-    <h1>Glandula<em>Paratiroides</em></h1>
-    <p class="sub">E.M DAVID ALESSANDRO HERNANDEZ CERVANTES</p>
-    <p class="sub">E.M ALFONSINA DAVILA RAMOS </p>
-    <p class="sub">E.M CRISTINA MARCHAND LOPEZ  </p>
-    <p class="sub">E.M ESMERALDA DE LUNA GONZALEZ  </p>
-    <p class="sub">E.M MARIANA GUTIERREZ GONZALEZ </p>
+    <p class="eyebrow">Fisiología II · Universidad de Santa Fe</p>
+    <h1>Glándula <em>Paratiroides</em></h1>
+    <p class="sub">Pesan juntas menos que un clip, se esconden detrás de la tiroides y sin ellas el músculo no se relaja.</p>
+    <ul class="authors">
+      <li>E.M. David Alessandro Hernández Cervantes</li>
+      <li>E.M. Alfonsina Dávila Ramos</li>
+      <li>E.M. Cristina Marchand López</li>
+      <li>E.M. Esmeralda de Luna González</li>
+      <li>E.M. Mariana Gutiérrez González</li>
+    </ul>
   </header>
 
   <div class="viewer">
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" id="tab-anat" aria-selected="true" aria-controls="view-anat">Anatomía · vista posterior</button>
+    <div class="viewer-head">
+      <span>Anatomía · vista posterior del cuello</span>
     </div>
 
     <div class="stage">
       <!-- ===================== VISTA ANATÓMICA ===================== -->
-      <svg class="scene" id="view-anat" role="tabpanel" aria-labelledby="tab-anat" viewBox="0 0 520 640"
+      <svg class="scene" id="view-anat" viewBox="0 0 520 640"
            aria-label="Vista posterior del cuello: tráquea, cara posterior de la tiroides y las cuatro glándulas paratiroides.">
         <defs>
           <linearGradient id="gThy" x1="0" y1="0" x2="0" y2="1">
@@ -263,7 +256,16 @@
           </g>
         </g>
       </svg>
+    </div>
 
+    <div class="controls">
+      <button class="ctrl" id="btnPlay" aria-pressed="true">Pausar</button>
+      <button class="ctrl" id="btnLabels" aria-pressed="true">Ocultar etiquetas</button>
+      <button class="ctrl" id="btnPTH" aria-pressed="true">Ocultar secreción de PTH</button>
+    </div>
+    <p class="caption" id="caption">Los puntos dorados que salen de las glándulas representan la PTH entrando a la sangre.</p>
+  </div>
+</div>
 
 <main class="wrap">
 
@@ -275,7 +277,7 @@
       entre 30 y 40 mg; las cuatro juntas rara vez pasan de 160 mg.
     </p>
     <p class="lead" style="margin-top:16px">
-      A pesar del nombre, <strong>no tienen nada que ver con la tiroides</strong> son órganos
+      A pesar del nombre, <strong>no tienen nada que ver con la tiroides</strong> más allá del domicilio: son órganos
       distintos, con otro origen embriológico y otra función. La tiroides regula el metabolismo; la paratiroides regula
       el <span class="term">calcio de la sangre</span> mediante una sola hormona, la <span class="term">paratohormona (PTH)</span>.
     </p>
@@ -286,7 +288,57 @@
     </p>
   </section>
 
-    <section>
+  <section>
+    <div class="sec-head"><p class="eyebrow">02</p><h2>Sus partes</h2><div class="rule"></div></div>
+
+    <div class="grid">
+      <div class="card">
+        <span class="swatch" style="background:var(--para)"></span>
+        <span class="tag">Número y posición</span>
+        <h3>Superiores e inferiores</h3>
+        <p>Dos <strong>superiores</strong>, en la unión del tercio superior con el medio del lóbulo tiroideo, y dos
+           <strong>inferiores</strong>, cerca del polo inferior. Las cuatro quedan en la cara posterior de la tiroides.</p>
+        <p>Vienen de bolsas faríngeas distintas: las superiores de la <strong>cuarta</strong> y las inferiores de la
+           <strong>tercera</strong>, junto con el timo. Como las inferiores descienden más durante el desarrollo, sus
+           caminos se cruzan y su posición es mucho más variable.</p>
+        <p class="plain">Por eso las superiores casi siempre están donde deben, y las inferiores pueden aparecer
+           dentro del timo o en el mediastino. En cerca de 1 de cada 10 personas no son cuatro, sino tres, cinco o seis.</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">Cubierta</span>
+        <h3>Cápsula</h3>
+        <p>Una <strong>cápsula delgada de tejido conectivo</strong> envuelve a cada glándula y manda tabiques hacia
+           adentro que dividen el parénquima y llevan los vasos y nervios.</p>
+        <p class="plain">Tener cápsula propia es lo que permite despegarlas de la tiroides en el quirófano: son
+           vecinas, no una sola pieza. También es lo que le da a la glándula su forma ovalada y su superficie lisa.</p>
+      </div>
+
+      <div class="card">
+        <span class="swatch" style="background:#E8B9A8"></span>
+        <span class="tag">Parénquima · 1</span>
+        <h3>Células principales</h3>
+        <p>Son las más numerosas y las verdaderas protagonistas: <strong>pequeñas, poligonales, de citoplasma claro
+           y núcleo redondo central</strong>. Se acomodan formando cordones y nidos.</p>
+        <p>Son las que <strong>fabrican y secretan la PTH</strong>, y las que llevan en su membrana el receptor
+           sensible al calcio (CaSR) que mide cuánto calcio trae la sangre.</p>
+        <p class="plain">Si un grupo de estas células se multiplica de más y forma un adenoma, secretan PTH sin
+           control: eso es el hiperparatiroidismo primario.</p>
+      </div>
+
+      <div class="card">
+        <span class="swatch" style="background:#C98A3E"></span>
+        <span class="tag">Parénquima · 2</span>
+        <h3>Células oxífilas</h3>
+        <p>Más grandes que las principales, aisladas o en pequeños grupos, con citoplasma
+           <strong>intensamente acidófilo</strong> —se tiñen de rosa fuerte— porque están repletas de mitocondrias.</p>
+        <p class="plain">Aparecen alrededor de la pubertad y aumentan con la edad. Lo curioso es que todavía no se
+           sabe bien para qué sirven: no secretan PTH de forma significativa. Es uno de los pendientes de la histología.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="sec-head"><p class="eyebrow">03</p><h2>Para qué sirve: el eje del calcio</h2><div class="rule"></div></div>
     <p class="lead" style="margin-bottom:20px">
       La PTH sube el calcio de la sangre por tres caminos a la vez. Mueve el interruptor y observa cómo responde
@@ -303,8 +355,6 @@
       <p id="axisNote"></p>
     </div>
   </section>
-
-  
 
 </main>
 
@@ -347,59 +397,8 @@
     particles.push({node:c,src:i%4,t:Math.random(),spd:0.0022+Math.random()*0.0024,drift:(Math.random()-.5)*40});
   }
 
-  /* ============ histología ============ */
-  let seed=20260828;
-  const rnd=()=>{seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;};
-  const hc=document.getElementById('histo-cells');
-  const hv=document.getElementById('histo-vessels');
-  const hb=document.getElementById('histo-blood');
-
-  // adipocitos primero (van al fondo)
-  const adipos=[[352,398],[300,452],[382,336],[318,352],[196,412],[236,466],[402,420],[262,244]];
-  adipos.forEach(([x,y])=>{
-    hc.appendChild(el('circle',{cx:x,cy:y,r:17,fill:'#EFE6D6',opacity:.13,stroke:'#EFE6D6','stroke-width':1.4,'stroke-opacity':.5}));
-    hc.appendChild(el('circle',{cx:x+12,cy:y+9,r:2.6,fill:'#EFE6D6',opacity:.6}));
-  });
-  // células principales
-  for(let i=0;i<210;i++){
-    const a=rnd()*Math.PI*2, r=Math.sqrt(rnd())*176;
-    const x=260+Math.cos(a)*r, y=318+Math.sin(a)*r;
-    if(adipos.some(([ax,ay])=>Math.hypot(ax-x,ay-y)<24)) continue;
-    if(Math.hypot(x-330,y-250)<52) continue; // reservado a oxífilas
-    hc.appendChild(el('circle',{cx:x,cy:y,r:6.6+rnd()*1.6,fill:'#E8B9A8',opacity:.92}));
-    hc.appendChild(el('circle',{cx:x,cy:y,r:2.5,fill:'#7A3A55',opacity:.85}));
-  }
-  // células oxífilas (un nido)
-  for(let i=0;i<22;i++){
-    const a=rnd()*Math.PI*2, r=Math.sqrt(rnd())*46;
-    const x=330+Math.cos(a)*r, y=250+Math.sin(a)*r;
-    hc.appendChild(el('circle',{cx:x,cy:y,r:9.4,fill:'#C98A3E',opacity:.95}));
-    hc.appendChild(el('circle',{cx:x,cy:y,r:2.8,fill:'#5E2E20',opacity:.9}));
-  }
-  // capilares
-  const capPaths=[
-    'M 84 300 C 150 268 200 372 268 330 C 336 288 388 392 452 348',
-    'M 120 452 C 190 420 236 470 300 436 C 360 404 396 452 448 428',
-    'M 140 190 C 200 232 246 178 306 214 C 362 248 396 206 440 236'
-  ];
-  const caps=capPaths.map(d=>{
-    const p=el('path',{d,fill:'none',stroke:'#C4514A','stroke-width':7,opacity:.55,'stroke-linecap':'round'});
-    hv.appendChild(p); return p;
-  });
-  const bloods=[];
-  caps.forEach((p,i)=>{
-    for(let k=0;k<5;k++){
-      const c=el('circle',{r:2.6,fill:'#F0857C',opacity:.95});
-      hb.appendChild(c);
-      bloods.push({node:c,path:p,t:(k/5+i*0.13)%1,spd:0.0016+i*0.0004});
-    }
-  });
-
   /* ============ animación principal ============ */
   let playing=!reduced, showLabels=true, showPTH=true, time=0;
-  const anatSVG=document.getElementById('view-anat');
-  const histoSVG=document.getElementById('view-histo');
-  let view='anat';
 
   const pthPath=(i)=>{
     const g=GLANDS[i];
@@ -408,32 +407,22 @@
 
   function tick(){
     if(playing) time+=1;
-    if(view==='anat'){
-      glandNodes.forEach((n,i)=>{
-        const s=1+Math.sin(time*0.035+i*1.3)*0.05;
-        n.body.setAttribute('transform',`scale(${s.toFixed(3)})`);
-        n.halo.setAttribute('opacity',(0.10+0.10*(0.5+0.5*Math.sin(time*0.035+i*1.3))).toFixed(3));
-      });
-      particles.forEach(p=>{
-        if(playing) p.t+=p.spd;
-        if(p.t>1) p.t-=1;
-        const {x0,y0,x1,y1}=pthPath(p.src);
-        const t=p.t;
-        const x=x0+(x1-x0)*t + Math.sin(t*7+p.drift)*7;
-        const y=y0+(y1-y0)*t;
-        p.node.setAttribute('cx',x.toFixed(1));
-        p.node.setAttribute('cy',y.toFixed(1));
-        p.node.setAttribute('opacity', showPTH ? (Math.sin(Math.PI*t)*0.95).toFixed(2) : 0);
-      });
-    } else {
-      bloods.forEach(b=>{
-        if(playing) b.t+=b.spd;
-        if(b.t>1) b.t-=1;
-        const L=b.path.getTotalLength();
-        const pt=b.path.getPointAtLength(b.t*L);
-        b.node.setAttribute('cx',pt.x); b.node.setAttribute('cy',pt.y);
-      });
-    }
+    glandNodes.forEach((n,i)=>{
+      const s=1+Math.sin(time*0.035+i*1.3)*0.05;
+      n.body.setAttribute('transform',`scale(${s.toFixed(3)})`);
+      n.halo.setAttribute('opacity',(0.10+0.10*(0.5+0.5*Math.sin(time*0.035+i*1.3))).toFixed(3));
+    });
+    particles.forEach(p=>{
+      if(playing) p.t+=p.spd;
+      if(p.t>1) p.t-=1;
+      const {x0,y0,x1,y1}=pthPath(p.src);
+      const t=p.t;
+      const x=x0+(x1-x0)*t + Math.sin(t*7+p.drift)*7;
+      const y=y0+(y1-y0)*t;
+      p.node.setAttribute('cx',x.toFixed(1));
+      p.node.setAttribute('cy',y.toFixed(1));
+      p.node.setAttribute('opacity', showPTH ? (Math.sin(Math.PI*t)*0.95).toFixed(2) : 0);
+    });
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
@@ -450,7 +439,6 @@
   btnLabels.addEventListener('click',()=>{
     showLabels=!showLabels;
     document.getElementById('anat-labels').style.display=showLabels?'':'none';
-    document.getElementById('histo-labels').style.display=showLabels?'':'none';
     btnLabels.textContent=showLabels?'Ocultar etiquetas':'Mostrar etiquetas';
     btnLabels.setAttribute('aria-pressed',String(showLabels));
   });
@@ -461,22 +449,6 @@
     btnPTH.setAttribute('aria-pressed',String(showPTH));
   });
 
-  const tabA=document.getElementById('tab-anat'), tabH=document.getElementById('tab-histo');
-  const caption=document.getElementById('caption');
-  function setView(v){
-    view=v;
-    const isA=v==='anat';
-    anatSVG.classList.toggle('hidden',!isA);
-    histoSVG.classList.toggle('hidden',isA);
-    tabA.setAttribute('aria-selected',String(isA));
-    tabH.setAttribute('aria-selected',String(!isA));
-    btnPTH.style.display=isA?'':'none';
-    caption.textContent=isA
-      ? 'Los puntos dorados que salen de las glándulas representan la PTH entrando a la sangre.'
-      : 'Los glóbulos rojos recorren los capilares fenestrados que rodean cada cordón celular.';
-  }
-  tabA.addEventListener('click',()=>setView('anat'));
-  tabH.addEventListener('click',()=>setView('histo'));
 
   /* ============ eje del calcio ============ */
   const ax=document.getElementById('axis');
